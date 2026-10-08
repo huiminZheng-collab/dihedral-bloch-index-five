@@ -1,0 +1,53 @@
+# RFC3161 verification
+
+The token is a FreeTSA RFC3161 timestamp over the SHA-256 of the exact `RELEASE-MANIFEST.sha256` bytes. Only the digest/query was submitted, not the manuscript. The reply signature and query/data message imprints were independently checked with OpenSSL. The certificate chain is trusted specifically against the included FreeTSA self-issued root downloaded over HTTPS; this is an explicit service trust assumption, not a claim of universal/legal notarization.
+
+The token demonstrates that the authority processed this commitment at the recorded time. It does not establish authorship, correctness, novelty, acceptance, or the exact first public availability. No author-identifying detached signature/key is published; the verified CMS signature is the timestamp authority's signature.
+
+The payload manifest intentionally excludes itself and all timestamp files to avoid a circular hash. Check payload hashes first with `python verify_manifest.py`, then:
+
+```sh
+openssl ts -verify -in timestamp/manifest.tsr -queryfile timestamp/manifest.tsq -CAfile timestamp/freetsa-root.pem -untrusted timestamp/freetsa-tsa.crt
+openssl ts -verify -in timestamp/manifest.tsr -data RELEASE-MANIFEST.sha256 -CAfile timestamp/freetsa-root.pem -untrusted timestamp/freetsa-tsa.crt
+openssl ts -reply -in timestamp/manifest.tsr -text
+```
+
+Manifest SHA-256: `f6f93a96c547484be0b90c72f5c57091bc2fa57c10e9547468f18577d7bee220`.
+
+Certificate fingerprints and validity:
+
+```text
+freetsa-root.pem
+sha256 Fingerprint=A6:37:9E:7C:EC:C0:5F:AA:3C:BF:07:60:13:D7:45:E3:27:BB:BA:A3:8C:0B:9A:F2:24:69:D4:70:1D:18:AA:BC
+notBefore=Mar 13 01:52:13 2016 GMT
+notAfter=Mar  7 01:52:13 2041 GMT
+freetsa-tsa.crt
+sha256 Fingerprint=32:E8:41:A9:5C:C1:16:41:01:FF:DE:41:29:8E:F2:FC:75:C1:C4:37:2E:F0:95:E8:8A:6B:BD:47:DF:B1:91:FC
+notBefore=Feb 15 19:44:22 2026 GMT
+notAfter=Feb  2 19:44:22 2040 GMT
+```
+
+Authority reply:
+
+```text
+Status info:
+Status: Granted.
+Status description: unspecified
+Failure info: unspecified
+
+TST info:
+Version: 1
+Policy OID: tsa_policy1
+Hash Algorithm: sha256
+Message data:
+    0000 - f6 f9 3a 96 c5 47 48 4b-e0 b9 0c 72 f5 c5 70 91   ..:..GHK...r..p.
+    0010 - bc 2f a5 7c 10 e9 54 74-68 f1 85 77 d7 be e2 20   ./.|..Tth..w... 
+Serial number: 0x090D6A9E
+Time stamp: Oct  8 18:15:59 2026 GMT
+Accuracy: unspecified
+Ordering: yes
+Nonce: 0xE2C56C1961E0C869
+TSA: DirName:/O=Free TSA/OU=TSA/description=This certificate digitally signs documents and time stamp requests made using the freetsa.org online services/CN=www.freetsa.org/emailAddress=busilezas@mailbox.org/L=Wuerzburg/C=DE/ST=Bayern
+Extensions:
+Using configuration from /usr/ssl/openssl.cnf
+```

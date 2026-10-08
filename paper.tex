@@ -1,0 +1,461 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={A positive-density family of dihedral fields with Bloch lattice index five},pdfauthor={},pdfcreator={},pdfproducer={}}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Q}{\mathbb Q}\newcommand{\Z}{\mathbb Z}
+\newcommand{\F}{\mathbb F}\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\res}{\operatorname{res}}\newcommand{\cor}{\operatorname{cor}}
+\newcommand{\et}{\mathrm{\acute et}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\N}{\operatorname{N}}
+\newcommand{\dgen}{\operatorname{d}}
+\title{A positive-density family of dihedral fields\protect\\with Bloch lattice index five}
+\author{}\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+We construct an infinite family of non-real dihedral extensions of degree ten over
+\(\Q\), with fixed quadratic subfield \(\Q(i)\), for which the Bloch lattice index
+\(Q_2\) is five. A fixed Chebotarev set of rational primes has density \(1/50\).
+For each parameter prime in this set, at least two of the four mixed cyclic
+quintic ray class extensions of conductor \((25\ell)\) have the asserted index.
+Their five-primary tame kernels are \((\Z/5)^2\). The proof combines a
+two-dimensional cup-product pencil, the first generalized Bockstein map, integral
+co-descent, and a motivic genus formula. It does not assume a Lichtenbaum special
+value formula or determine a Bloch lattice by numerical regulators.
+\end{abstract}
+
+\section{The index and the statement}
+For a number field \(J\), let \(\mathcal B(J)\) denote the free quotient of its
+Bloch group, equivalently the free quotient of \(K_3^{\mathrm{ind}}(J)\).
+These identifications are natural in field embeddings; the regulator identifies
+the free quotient with its Bloch lattice. Let \(M/\Q\) be a non-real
+\(D_{10}\)-extension, let \(k\) be its quadratic subfield, and let
+\(F_1,F_2\) be two different quintic reflection subfields. The index considered
+by Browkin--Gangl and Guo--Qin is
+\[
+ Q_2(M)=[\mathcal B(M):\mathcal B(k)+\mathcal B(F_1)+\mathcal B(F_2)],
+\]
+where subgroups are understood via their natural images. Guo--Qin
+\cite[Theorem 4.3]{GQ} prove \(Q_2(M)\mid5\).
+
+Put \(k=\Q(i)\), \(E=k(\mu_5)=\Q(\zeta_{20})\), and let \(S_0\) consist of
+the primes above five and the infinite places. All sets of primes are pulled
+back to every extension in use. Write \(K_2(O_J)(5)\) for the five-primary
+subgroup. The base vanishing needed below has a short verification.
+
+\begin{lemma}\label{lem:base}
+\(K_2(\Z[i])(5)=0\), and \(H^2(G_{k,S_0},\F_5(2))=0\).
+\end{lemma}
+\begin{proof}
+The field \(E=\Q(\zeta_{20})\) has class number one; the accompanying
+fixed-field certificate verifies this fact independently. Kummer theory gives
+\(H^2(O_E[1/5],\mu_5)=\operatorname{Br}(O_E[1/5])[5]\).
+The Brauer invariant sequence identifies this group with the kernel of
+\(\F_5^2\xrightarrow{+}\F_5\), one coordinate for each five-prime.
+Both primes are fixed by \(\Delta=\Gal(E/k)\), and local invariants show
+that \(\Delta\) acts trivially on this kernel. Twisting by
+\(\F_5(1)\) therefore gives a nontrivial cyclotomic character on
+\(H^2(G_{E,S_0},\F_5(2))\). Its \(\Delta\)-invariants vanish.
+Since \(|\Delta|=4\), Hochschild--Serre identifies those invariants with
+\(H^2(G_{k,S_0},\F_5(2))\). The integral weight-two comparison with the
+tame kernel, reduction modulo five, and finiteness then give the asserted
+five-primary vanishing.
+\end{proof}
+
+\begin{theorem}\label{thm:main}
+There is a set \(\mathcal P\) of rational primes of natural and Dirichlet density
+\(1/50\), all congruent to one modulo twenty, with the following property.
+For each \(\ell\in\mathcal P\), at least two of the four anti-conjugate mixed
+cyclic quintic ray class extensions \(M/k\) of conductor \((25\ell)\) satisfy
+\[
+ \Gal(M/\Q)\simeq D_{10},\qquad Q_2(M)=5,
+ \qquad K_2(O_M)(5)\simeq(\Z/5)^2.
+\]
+Their discriminants are
+\(\operatorname{disc}(M)=-2^{10}5^{16}\ell^8\).
+If \(a=v_5(\ell-1)\) and \(S=S_0\cup\{v:v\mid\ell\}\), then
+\[
+ H^2(G_{M,S},\Z_5(2))\simeq(\Z/5^{a+1})^2.
+\]
+In particular, there are infinitely many pairwise non-isomorphic such fields
+with the same quadratic subfield and the same degree over \(\Q\).
+\end{theorem}
+
+The theorem permits a choice among four actual ray class fields for each
+parameter. It does not assert that an arbitrary preselected ray has index five.
+The density is a density of parameter primes, not a density ordered by field
+discriminant.
+
+\section{The fixed extensions and their Chebotarev set}
+The five-primary character space of the ray class group of \(k\) modulo
+\((25)\) has dimension two. Complex conjugation exchanges the two primes above
+five. Its negative eigenspace has dimension one. Fix a nonzero character
+\(\eta_0\) in this eigenspace, with fixed field \(M_0\). Thus \(M_0/k\) is
+cyclic of degree five and conductor \((25)\), and \(M_0/\Q\) is dihedral.
+This uses \(h(k)=1\) and \(|\mu(k)|=4\).
+
+Let \(T=\F_5(2)\). The integral group
+\(H^1(G_{k,S_0},\Z_5(2))\) is free of rank one over \(\Z_5\): its rank is
+the Borel rank \(r_2(k)=1\), and its torsion is
+\(H^0(k,\Q_5/\Z_5(2))=0\), since \(\sqrt5\notin k\).
+The vanishing of the integral \(H^2\) and Bockstein give
+\[
+ H^1(G_{k,S_0},\Z_5(2))/5\simeq H^1(G_{k,S_0},T).
+\]
+Restriction to \(E\) is injective, because \([E:k]=4\) is prime to five.
+The Kummer comparison
+\(H^1(E,T)=H^1(E,\mu_5)\otimes\F_5(1)\) turns its image into a
+one-dimensional nonzero subgroup \(D\subset E^\times/E^{\times5}\).
+This is the weight-two Tate line of \cite{AM19}. It is unramified outside five
+in the sense that \(E_T=E(\sqrt[5]{D})/E\) is unramified outside five.
+
+Let \(\Delta=\Gal(E/k)\simeq C_4\), and let \(\omega\) be its cyclotomic
+character modulo five. The line \(D\) has character \(\omega^{-1}\).
+Consequently, the Kummer pairing with target \(\mu_5\) shows that
+\(\Delta\) acts on \(\Gal(E_T/E)\) with character \(\omega^2\).
+On \(\Gal(M_0E/E)\), the action is trivial, since \(M_0E/k\) is abelian.
+Thus the two cyclic quintic extensions of \(E\) are different and linearly
+disjoint. The Tate line is also stable under conjugation over \(\Q\);
+both factors, and hence
+\[
+ L=E_T M_0,
+\]
+are normal over \(\Q\). We have \([L:\Q]=8\cdot25=200\).
+
+Let \(\mathcal P\) consist of the unramified rational primes whose Frobenius
+in \(L/\Q\) is trivial on \(E_T\) and nontrivial on \(M_0E/E\).
+In \(\Gal(L/E)=C_5\times C_5\), this condition selects exactly four elements.
+It is invariant under conjugation, because both factors are normal over
+\(\Q\). Chebotarev gives density \(4/200=1/50\).
+Such primes split completely in \(E\), so \(\ell\equiv1\pmod{20}\).
+For either prime of \(k\) above \(\ell\), the unramified character
+\(\eta_0\) has nonzero Frobenius value, and the Tate Frobenius is zero.
+Different choices of a prime of \(E\) change Frobenius by a nonzero scalar
+conjugation; its vanishing and the dimension of its span are unchanged.
+
+\section{A cup-product pencil on the fixed base field}
+Fix \(\ell\in\mathcal P\), and let \(v_1,v_2\) be the primes of \(k\) over
+\(\ell\). The anti-conjugate five-order character space modulo \((\ell)\)
+is one-dimensional. Choose a nonzero character \(\eta_\ell\) there.
+For \(\lambda\in\F_5^\times\), put
+\[
+ \eta_\lambda=\eta_0+\lambda\eta_\ell,
+ \qquad M_\lambda=\overline{k}^{\ker\eta_\lambda}.
+\]
+The two characters have different ramification sets and are independent.
+These are four different cyclic quintic layers, each fully ramified at both
+five-primes and both \(\ell\)-primes and with conductor \((25\ell)\).
+Conjugation negates each character, so each field is dihedral over \(\Q\).
+The conductor--discriminant formula gives
+\[
+ \operatorname{disc}(M_\lambda)
+ =(-4)^5\N_{k/\Q}((25\ell)^4)
+ =-2^{10}5^{16}\ell^8.
+\]
+
+Set \(\mathcal G=G_{k,S}\), with \(S=S_0\cup\{v_1,v_2\}\).
+The base group \(H^2(G_{k,S_0},T)\) is zero. Localization and purity give
+\begin{align}
+ H^1(\mathcal G,T)&\longrightarrow
+ \bigoplus_{j=1}^2 H^0(\kappa(v_j),\F_5(1))\longrightarrow0,\label{eq:inertia}\\
+ H^2(\mathcal G,T)&\xrightarrow{\sim}
+ \bigoplus_{j=1}^2 H^2(k_{v_j},T)\simeq\F_5^2.\label{eq:h2loc}
+\end{align}
+In \eqref{eq:inertia}, each summand is \(\F_5\), since
+\(\ell\equiv1\pmod5\), and the map records tame inertia residues.
+Surjectivity follows from the preceding zero \(H^2(G_{k,S_0},T)\).
+For \eqref{eq:h2loc}, localization identifies the new finite-field
+\(H^1(\kappa(v_j),\F_5(1))\) with the local \(H^2\); the next global
+\(H^3\) is zero. The five-adic local \(H^2\) groups vanish because those
+completions do not contain \(\mu_5\).
+
+Choose \(y_1,y_2\in H^1(\mathcal G,T)\) mapping to the standard basis in
+\eqref{eq:inertia}. The character \(\eta_0\) is unramified at these primes,
+with Frobenius values \(u,-u\), where \(u\ne0\). Locally, cup product pairs
+an unramified \(\F_5\)-character perfectly with the one-dimensional tame
+inertia residue in \(H^1(T)\); the cup of two unramified classes is zero.
+Consequently \(\eta_0\cup-\), restricted to the span of \(y_1,y_2\), has
+an invertible diagonal matrix \(C_0\) in \eqref{eq:h2loc}.
+
+Let \(C_\ell\) be the matrix for \(\eta_\ell\cup-\) on the same two
+vectors. For \(\eta_\lambda\), the matrix is
+\[
+ C_\lambda=C_0+\lambda C_\ell.
+\]
+Its determinant is a polynomial of degree at most two over \(\F_5\), with
+nonzero constant coefficient. It has at most two roots. Therefore at least
+two of the four nonzero \(\lambda\) satisfy
+\begin{equation}\label{eq:cup}
+ \eta_\lambda\cup-:H^1(\mathcal G,T)\twoheadrightarrow H^2(\mathcal G,T).
+\end{equation}
+No assertion about the distribution of residue symbols of varying prime
+generators is required: \(C_\ell\) may depend arbitrarily on \(\ell\).
+
+\section{From cup product to integral co-descent}
+Fix a line satisfying \eqref{eq:cup}. Write \(M=M_\lambda\),
+\(\mathcal N=\ker\eta_\lambda=G_{M,S}\), and
+\(G=\mathcal G/\mathcal N=\langle\rho\rangle=C_5\).
+Put \(\Omega=\F_5[G]\), \(I=(\rho-1)\), and \(A=H^2(\mathcal N,T)\).
+Theorem 2.2.4 of Lam--Liu--Sharifi--Wake--Wang \cite{LLSWW}, with
+\(R=\F_5\), \(n=1\), and finite \(H=G\), gives
+\[
+ IA/I^2A\simeq\coker\bigl(H^1(\mathcal G,T)
+ \xrightarrow{\,\eta_\lambda\cup-\,}H^2(\mathcal G,T)\bigr).
+\]
+All required flatness conditions hold over \(\F_5\).
+For finite \(H\), its Iwasawa cohomology is ordinary subgroup cohomology
+\cite[Remark 2.2.1]{LLSWW}; the first Bockstein is the cup product
+\cite[Proposition 2.3.3]{LLSWW}.
+Equation \eqref{eq:cup} gives \(IA=I^2A\). Since \(I^5=0\), it gives
+\(IA=0\). The natural top-degree co-descent isomorphism
+\(A_G\simeq H^2(\mathcal G,T)\) therefore proves \(A\simeq\F_5^2\).
+
+Put
+\[
+ B=H^2(G_{M,S},\Z_5(2)),\quad W=K_2(O_M)(5),
+ \quad a=v_5(\ell-1),\quad R=(\Z/5^a)^2.
+\]
+These integral cohomology groups are finite. Cohomological dimension at most
+two and the Mittag--Leffler property for finite coefficient groups give
+continuous \(H^3(G_{M,S},\Z_5(2))=0\). Thus Bockstein gives
+\(B/5B\simeq A\), and \(\dgen(B)=2\).
+
+The integral localization sequence is
+\begin{equation}\label{eq:integralloc}
+ 0\longrightarrow W\longrightarrow B
+ \xrightarrow{\lambda_{\mathrm{loc}}}R\longrightarrow0.
+\end{equation}
+The base group \(H^2(G_{k,S},\Z_5(2))\) is also \(R\), because its tame
+kernel has zero five-primary part. Integral co-descent
+\cite[Theorem 1.5 and the following paragraph]{AM12} identifies
+\(\cor:B_G\xrightarrow{\sim}R\).
+The localization diagram is natural: on residue multiplicative groups the
+corestriction is the residue-field norm, while restriction is the
+ramification-index power. Here \(f=1\) and \(e=5\), so, in matched residue
+coordinates,
+\begin{equation}\label{eq:transfer}
+ q:=\cor=\lambda_{\mathrm{loc}},\qquad
+ (\rho-1)B=W,\qquad \res\,q=N_G.
+\end{equation}
+The first equality uses the residue norm, not multiplication by the
+ramification index.
+
+\begin{lemma}\label{lem:integral}
+With the preceding notation, \(W=5^aB\), \(5^{a+1}B=0\),
+\(N_G=5\operatorname{id}_B\), and \(G\) acts trivially on \(W\).
+\end{lemma}
+\begin{proof}
+A surjection from a finite abelian five-group with two generators onto
+\((\Z/5^a)^2\) forces both cyclic factors to have exponent at least \(a\).
+Hence \(|B/5^aB|=|R|\). Since \(5^aB\subset\ker q\), comparison of orders
+in \eqref{eq:integralloc} gives \(W=5^aB\).
+Let \(t=\rho-1\). Then \(tB=5^aB\) and \(t^jB=5^{aj}B\).
+The identity
+\[
+ 0=5t+10t^2+10t^3+5t^4+t^5
+\]
+implies \(5^{a+1}B\subset5^{a+2}B\), as every other term has image contained
+in the latter group when \(a\ge1\). Finiteness forces \(5^{a+1}B=0\).
+Thus \(t^2B=0\); in
+\(N_G=5+10t+10t^2+5t^3+t^4\), all nonconstant terms vanish, including
+\(10tB\subset5^{a+1}B\). Finally
+\(tW=5^atB=5^{2a}B=0\).
+\end{proof}
+
+\section{The genus formula and the actual Bloch lattice}
+The motivic tame-kernel genus formula
+\cite[Proposition 4.11 and Corollary 4.12]{AM19} gives
+\[
+ \frac{|W_G|}{|K_2(O_k)(5)|}=5^{2-t_2}.
+\]
+Here \(t_2\) is the dimension of the span of the two tame Frobenius elements
+in the fixed extension \(E_T/E\). It depends only on the weight-two Tate line
+of \(k\) and the two tame ramified primes. All four mixed lines have the same
+tame set and nonzero local characters; changing \(\lambda\) multiplies a tame
+character by a nonzero scalar and does not change its norm kernel.
+By construction of \(\mathcal P\), \(t_2=0\) for all four lines.
+
+Lemma \ref{lem:integral} makes \(W_G=W\). The genus formula gives \(|W|=25\),
+and \(5W=0\). Both cyclic factors of \(B\) must consequently have exponent
+\(a+1\). The equality \(\res q=5\operatorname{id}_B\), with \(q\) surjective,
+gives \(\res(R)=5B\). These groups have equal order, so restriction is
+injective. For a finite cyclic action \(|B^G|=|B_G|=|R|\), so restriction is
+also surjective onto \(B^G\). In particular the integral restriction
+\begin{equation}\label{eq:f2}
+ f_2:H^2(G_{k,S},\Z_5(2))\longrightarrow B^G
+\end{equation}
+has zero cokernel.
+
+We include the lattice consequence to make the link to \(Q_2\) explicit.
+It uses no special-value conjecture.
+\begin{proposition}\label{prop:lattice}
+For a non-real \(D_{10}\)-extension \(M/\Q\), if \eqref{eq:f2} has zero
+cokernel for a set \(S\) covering its relative ramification and all five-primes,
+then \(Q_2(M)=5\).
+\end{proposition}
+\begin{proof}
+Let \(\Lambda=K_3^{\mathrm{ind}}(M)\otimes\Z_5\).
+It is a free lattice of rank five. The torsion formula for indecomposable
+\(K_3\) and the Chern comparison \cite[Theorem 4.5 and Corollary 4.6]{Levine}
+show that five-torsion would require \(\Q(\sqrt5)\subset M\).
+But the unique quadratic subfield of a non-real dihedral field is imaginary.
+Thus there is no five-torsion.
+Levine's integral Galois descent \cite[Theorem 4.13]{Levine} identifies the
+actual subfield images with \(\Lambda^{C_5}\) and the two reflection invariant
+lattices. Its finite-quotient order condition is prime to the field
+characteristic, which is zero; it does not exclude degree five.
+The natural Suslin exact sequence identifies the free \(K_3\) quotient with
+the free Bloch quotient, compatibly with these images.
+
+Weight-two integral \(H^1\) does not increase on enlarging \(S\), because
+the possible new finite-field \(H^0(\kappa(v),\Z_5(1))\) is zero.
+The comparison and \cite[Theorem 1.5]{AM12} give
+\[
+ \coker f_2=H^2(C_5,\Lambda)
+ =\Lambda^{C_5}/N_G\Lambda=0.
+\]
+Write \(\Lambda^{C_5}=\Z_5y\), a saturated rank-one sublattice. Its quotient
+is a rank-one free module over \(\Z_5[\zeta_5]\). Lift its generator to \(x\),
+and write \(N_Gx=by\). The zero norm quotient forces \(b\) to be a unit;
+thus \(\Lambda\simeq\Z_5[C_5]x\).
+
+Let \(c\) be a reflection. On the invariant line it acts as \(-1\), since
+that line descends to the imaginary quadratic field, whose \(K_3\) free
+quotient has no rational invariant part. In the regular group ring
+\(\mathcal R=\Z_5[C_5]\), write \(cx=wx\), so \(w\bar w=1\) and
+\(\operatorname{aug}(w)=-1\), with \(\bar\rho=\rho^{-1}\).
+The unit \(u=(1-w)/2\) satisfies \(w\bar u=-u\). Replacing \(x\) by \(ux\)
+normalizes the action to \(c(rx)=-\bar r x\).
+
+For a basis \(e_j=\rho^jx\), a reflection \(\rho^bc\) sends
+\(e_j\) to \(-e_{b-j}\). Its invariant lattice is generated by the
+differences \(e_j-e_{b-j}\). Two different reflections give a connected
+graph on the five indices: their composition is a nonzero translation.
+Their differences therefore generate the augmentation ideal \(I_{\mathcal R}\).
+Adding \(\Lambda^{C_5}=\Z_5N_Gx\), the quotient is
+\(\mathcal R/(I_{\mathcal R}+\Z_5N_G)\simeq\Z/5\).
+This computes the five-adic index of the actual subfield Bloch lattices.
+Guo--Qin's bound \(Q_2\mid5\) makes it the full index.
+\end{proof}
+
+Apply Proposition \ref{prop:lattice} to the good lines to finish
+Theorem \ref{thm:main}. Varying \(\ell\) changes the discriminant, so the
+result is an infinite family rather than a sequence of repetitions.
+
+\section{Fixed data and reproducibility}
+The theorem uses a fixed finite extension to define its prime set.
+It also has a small-field exact description. In \(E=\Q(y)\), \(y=\zeta_{20}\),
+one may take the Tate-line generator
+\[
+ g_2=-5y^7+7y^6-3y^5+y^4-5y^3+6y^2-3.
+\]
+The supplied PARI/GP 2.15.5 certificate proves \(h(E)=1\), certifies the
+fundamental unit group, and records \(g_2\)'s coordinates \((1,3,1,0)\).
+Thus it is not a fifth power. If \(\sigma_{13}(y)=y^{13}\) and
+\(c(y)=y^{-1}\), the unit coordinates of
+\(\sigma_{13}(g_2)/g_2^2\) and \(c(g_2)/g_2\) are respectively
+\((0,-5,-5,15)\) and \((0,0,0,10)\), where the final coordinate refers to
+the order-twenty roots of unity. Both ratios are fifth powers. This gives the
+required \(\Delta\)-character \(\omega^{-1}\). Since it is an \(S_0\) Kummer
+class and the base cohomology is one-dimensional, it generates the canonical
+line \(D\).
+
+The fixed pure-wild field \(M_0\) is the splitting field of
+\[
+ f_0(X)=X^5+10X^3-10X^2-15X-18.
+\]
+A separate ray-class certificate over \(\Q(i)\) proves its group,
+conductor, and discriminant. For \(\ell\equiv1\pmod{20}\), membership in
+\(\mathcal P\) can be checked by
+\[
+ g_2^{(\ell-1)/5}\equiv1\pmod Q\quad(Q\mid\ell\text{ in }E),
+ \qquad f_0\bmod\ell\text{ irreducible}.
+\]
+The second test detects the nontrivial cyclic Frobenius, since \(\ell\) splits
+in the quadratic subfield. The exact certificate checks all eight residue
+symbols in \(E\). It finds that \(701,941,1321,1381,1801,2081\) meet both
+conditions, whereas \(41\) fails the Tate condition. These calculations check
+fixed data and examples; the infinite-family proof uses Chebotarev and the
+cup-product argument, not a finite search.
+
+\section{Relation to earlier work and scope}
+Browkin--Gangl \cite[Section 12.4]{BG} already gave numerical evidence for
+\(Q_2=5\), including a dihedral Hilbert-class-field example with quadratic
+subfield \(\Q(\sqrt{-47})\). Their numerical lattice-generation qualifications
+must be kept distinct from an integral proof. Guo--Qin \cite{GQ} established
+the dihedral divisibility theorem, which we use, and an infinite family with
+\(Q_2=1\) and quadratic subfield \(\Q(\sqrt{-3})\).
+General higher \(K\)-group index formulae and their cohomological interfaces
+already occur in Caputo \cite{Caputo12,Caputo26} and Bartel--de Smit
+\cite{BS}. The general integral
+co-descent and genus statements used here belong to Assim--Movahhedi
+\cite{AM12,AM19}; the generalized Bockstein theorem belongs to
+Lam--Liu--Sharifi--Wake--Wang \cite{LLSWW}.
+
+The arithmetic construction here keeps the quadratic subfield fixed and
+selects among four mixed rays with a uniform two-root bound. It is not a new
+general Bockstein theory or a new polynomial root-counting lemma. Nor does it
+prove that every ray chosen by a separate Kummer algorithm is good. No claim
+of a formally verified proof, a first numerical example, or a named open
+problem's historical attribution is made.
+
+\paragraph{Computational and drafting assistance.}
+Language-model assistance was used in developing the draft and accompanying
+exact-arithmetic scripts. The mathematical argument is supplied for independent
+human scrutiny. The artifacts contain exact checks, not Lean formalization or
+a certificate of novelty.
+
+\begin{thebibliography}{99}
+\bibitem{BG} J. Browkin and H. Gangl,
+\emph{Tame kernels and second regulators of number fields and their subfields},
+Journal of K-Theory \textbf{12} (2013), 137--165,
+\href{https://doi.org/10.1017/is013005031jkt229}{doi:10.1017/is013005031jkt229}.
+\bibitem{GQ} X. Guo and H. Qin,
+\emph{The extended Bloch groups of biquadratic and dihedral number fields},
+Journal of Pure and Applied Algebra \textbf{222} (2018), 3968--3981,
+\href{https://doi.org/10.1016/j.jpaa.2018.02.015}{doi:10.1016/j.jpaa.2018.02.015}.
+\bibitem{AM12} J. Assim and A. Movahhedi,
+\emph{Norm index formula for the Tate kernels and applications},
+Journal of K-Theory \textbf{9} (2012), 359--383,
+\href{https://doi.org/10.1017/is011003006jkt135}{doi:10.1017/is011003006jkt135}.
+\bibitem{AM19} J. Assim and A. Movahhedi,
+\emph{Galois co-descent for motivic tame kernels},
+Annales math\'ematiques du Qu\'ebec \textbf{49} (2025), 503--555,
+\href{https://doi.org/10.1007/s40316-024-00233-8}{doi:10.1007/s40316-024-00233-8}.
+The theorem numbers cited here refer to the
+\href{https://arxiv.org/abs/1901.07219}{2019 preprint version}.
+\bibitem{LLSWW} Y. H. J. Lam, Y. Liu, R. Sharifi, P. Wake, and J. Wang,
+\emph{Generalized Bockstein maps and Massey products},
+Forum of Mathematics, Sigma \textbf{11} (2023), e5,
+\href{https://doi.org/10.1017/fms.2022.103}{doi:10.1017/fms.2022.103};
+\href{https://arxiv.org/abs/2004.11510}{arXiv:2004.11510}.
+\bibitem{Caputo12} L. Caputo,
+\emph{The Brauer--Kuroda formula for higher S-class numbers in dihedral
+extensions of number fields}, Acta Arithmetica \textbf{151} (2012), 217--239,
+\href{https://doi.org/10.4064/aa151-3-1}{doi:10.4064/aa151-3-1}.
+\bibitem{BS} A. Bartel and B. de Smit,
+\emph{Index formulae for integral Galois modules},
+Journal of the London Mathematical Society \textbf{88} (2013), 845--859,
+\href{https://doi.org/10.1112/jlms/jdt033}{doi:10.1112/jlms/jdt033}.
+\bibitem{Caputo26} L. Caputo, \emph{Regulator constants and cohomology},
+Journal of the London Mathematical Society \textbf{114} (2026),
+\href{https://doi.org/10.1112/jlms.70671}{doi:10.1112/jlms.70671};
+\href{https://arxiv.org/abs/2603.01310}{arXiv:2603.01310}.
+\bibitem{Levine} M. Levine,
+\emph{The indecomposable \(K_3\) of fields},
+Annales scientifiques de l'\'Ecole Normale Sup\'erieure (4)
+\textbf{22} (1989), 255--344,
+\href{https://doi.org/10.24033/asens.1585}{doi:10.24033/asens.1585}.
+\end{thebibliography}
+\end{document}

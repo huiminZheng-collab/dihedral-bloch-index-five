@@ -12,7 +12,7 @@ openssl ts -verify -in timestamp/manifest.tsr -data RELEASE-MANIFEST.sha256 -CAf
 openssl ts -reply -in timestamp/manifest.tsr -text
 ```
 
-Manifest SHA-256: `f6f93a96c547484be0b90c72f5c57091bc2fa57c10e9547468f18577d7bee220`.
+Manifest SHA-256: `8367607c4b6a4ba69ac30e4b20337baa1ff7d3115b6c925f1769a3124f49b28c`.
 
 Certificate fingerprints and validity:
 
@@ -40,13 +40,13 @@ Version: 1
 Policy OID: tsa_policy1
 Hash Algorithm: sha256
 Message data:
-    0000 - f6 f9 3a 96 c5 47 48 4b-e0 b9 0c 72 f5 c5 70 91   ..:..GHK...r..p.
-    0010 - bc 2f a5 7c 10 e9 54 74-68 f1 85 77 d7 be e2 20   ./.|..Tth..w... 
-Serial number: 0x090D6A9E
-Time stamp: Oct  8 18:15:59 2026 GMT
+    0000 - 83 67 60 7c 4b 6a 4b a6-9a c3 0e 4b 20 33 7b aa   .g`|KjK....K 3{.
+    0010 - 1f f7 d3 11 5b 6c 92 5f-17 69 a3 12 4f 49 b2 8c   ....[l._.i..OI..
+Serial number: 0x090EEE88
+Time stamp: Oct  9 00:44:35 2026 GMT
 Accuracy: unspecified
 Ordering: yes
-Nonce: 0xE2C56C1961E0C869
+Nonce: 0x43A8C87B82BD8076
 TSA: DirName:/O=Free TSA/OU=TSA/description=This certificate digitally signs documents and time stamp requests made using the freetsa.org online services/CN=www.freetsa.org/emailAddress=busilezas@mailbox.org/L=Wuerzburg/C=DE/ST=Bayern
 Extensions:
 Using configuration from /usr/ssl/openssl.cnf
